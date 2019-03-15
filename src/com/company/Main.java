@@ -1,6 +1,8 @@
 package com.company;
 
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,7 +12,8 @@ public class Main {
 //        ClassWork();
 //        Test1();
 //        Test2();
-        Test3();
+//        Test3();
+        Test4();
     }
         private static void ClassWork(){
             Scanner scanner = new Scanner(System.in);
@@ -99,13 +102,13 @@ public class Main {
         Print(a);
     }
     public static void Sort(int[] a){
-        boolean isSorted = false;
+        boolean Sorted = false;
         int buf;
-        while(!isSorted) {
-            isSorted = true;
+        while(!Sorted) {
+            Sorted = true;
             for (int i = 0; i < a.length-1; i++) {
                 if(a[i] > a[i+1]){
-                    isSorted = false;
+                    Sorted = false;
                     buf = a[i];
                     a[i] = a[i+1];
                     a[i+1] = buf;
@@ -120,5 +123,43 @@ public class Main {
         }
         System.out.println("]");
     }
-
+    public static void Test4(){
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        int[] a = new int[10];
+        int b;
+        double[] c = new double[10];
+        double d;
+        boolean Met = true;
+        for (int i = 0; i <a.length ; i++) {
+            a[i] = random.nextInt(100);
+            c[i] = (random.nextDouble()*100);
+        }
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(c));
+        System.out.println("Введите целое число: ");
+        b = scanner.nextInt();
+        if (Check(a,b)) System.out.println("Это число есть в массиве");
+        else System.out.println("Этого числа нет в массиве");
+        System.out.println("Введите дробное число(с запятой): ");
+        d = scanner.nextDouble();
+        if (Check(c,d)) System.out.println("Это число есть в массиве");
+        else System.out.println("Этого числа нет в массиве");
+    }
+    public static boolean Check(int[] a , int b){
+        for (int i = 0; i <a.length ; i++) {
+            if (a[i] == b){
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean Check(double[] c, double d){
+        for (int i = 0; i <c.length ; i++) {
+            if (c[i] == d){
+                return true;
+            }
+        }
+        return false;
+    }
 }
